@@ -1,0 +1,8 @@
+;; yiddish.py doesn't get all the parts separately, but only as a unit
+
+loshn-hore	N
+yires-hakoved	N
+sholem-aleykhem	INT
+aleykhem-sholem	INTJ
+bas-yekhide	N
+beys-hamigdesh	N

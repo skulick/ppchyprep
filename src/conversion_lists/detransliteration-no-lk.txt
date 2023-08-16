@@ -1,0 +1,9 @@
+;; use  שעמען not  שמען 
+shemen	VB
+shem	VBI
+shem	VBF
+;; use 	קוש  not כּוש  
+kush	N
+;; use הײ  not ה
+hey	N
+beyz	ADV

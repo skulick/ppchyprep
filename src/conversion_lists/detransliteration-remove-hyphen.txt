@@ -1,0 +1,5 @@
+;;; there are some for which yiddish.py only works if the hyphen is removed
+;;; could change the version in the treebank but doesn't seem right
+alef-beys	N
+nafke-mine	N
+eyn-hore	N
