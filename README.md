@@ -47,9 +47,9 @@ ppchyprep/data/penn-parsed-corpus-of-historical-yiddish
 ppchyprep/src
 ```
 
-To carry out the processing,run `./run.sh` from the `ppchyprep` directory. This is hard-coded to write the output to a `ppchyprep/out` directory. Of course this can be changed in the run.sh script as desired.
+To carry out the processing, run `./run.sh` from the `ppchyprep` directory. This is hard-coded to write the output to a `ppchyprep/out` directory. Of course this can be changed in the run.sh script as desired.
 
-For further information on the output, please see the code documentation.
+The output directories and files in `ppchyprep/out/penn2/split` are used for training the part-of-speech tagger. (This code will be included at https://github.com/skulick/yiddishtag, although is not there yet.) For further information on the output, please see the code documentation.
 
 
 ## Other Notes
