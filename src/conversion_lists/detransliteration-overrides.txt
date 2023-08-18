@@ -5,7 +5,7 @@ levi	NPR	לױ
 reb	N	רעב
 reb	NPR	ר'
 
-;; yiddish.py needs rebm to return the right string - is this a bug or should this be the romanization?
+;; yiddish.py needs rebm to return the right string
 rebn	N	רבין
 
 ;; yiddish.py gets elkone as   אלקנה but not with the n - does it get acc/dat on other names?
@@ -31,16 +31,13 @@ mir'n	PRO~MDF	מיר'ן
 ;; one yud, while the dictionary has meyashev as the romanization.
 meyashev	RP-H	מײשב
 
-;; not sure what's going on with yiddish.py here
-;; detransliterate(porets, loshn_koydesh=True) =  ץורפּ (wrong)
-;; transliterate("ץירפּ", loshn_koydesh=True) =  porets  (correct)
+;; detransliterate(porets, loshn_koydesh=True)
 porets	N	פּריץ
 
 ;; yiddish.py only works as part of sosn-vesimkhe
 sosn	N	שׂשׂון
 
-;; interesting - yiddish.py has poshet of course, but not poshete - as an ADJ, shouldn't it have it also?
-;; same thing for online dictionary
+;; yiddish.py has poshet of course, but not poshete
 poshete	ADJ	פּשוטע
 
 ;; yiddish.py doesn't get this unless as part of sholem-aleykhem
@@ -56,7 +53,7 @@ das	X	דאס
 ;; really besmedresh but with a hey before medresh
 beys-hamidresh	N	ביתּ-המדרש
 
-;; yiddish.py only has it with epele
+;; yiddish.py has it with epele
 simkhes-toyre-epl	N	שׂימחת-תּורה-עפּל
 
 ki	H	כּי
