@@ -18,7 +18,7 @@ cd yiddishycode
 pip install .
 cd ..
 git clone https://github.com/skulick/ppctree.git
-cd ppcprep
+cd ppctree
 pip install .
 cd ..
 ```
