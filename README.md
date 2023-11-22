@@ -10,7 +10,7 @@ The part-of-speech tagger discussed [here](https://arxiv.org/abs/2204.01175) use
 
 There are two packages that need to be installed that are not yet on PyPi, 
 [yiddishycode](https://github.com/skulick/yiddishycode) and 
-[ppctree](https://github.com/skulick/yiddishycode).
+[ppctree](https://github.com/skulick/ppctree).
 These can be installed with
 ```
 git clone https://github.com/skulick/yiddishycode.git
