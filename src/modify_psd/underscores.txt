@@ -1,0 +1,260 @@
+;; ==============================
+;; gor_nit, gor_nisht
+;; ==============================
+;; -------------------------------------------------------
+;; A few less-common cases in which it's used as an INTJP
+;; As a consequence of these changes, the corpus will have both
+;; (INTJ gornit) and (INTJP (ADV gor) (NEG nit)).  This is annoying,
+;; but it's what happens and needs to be dealt with at some level.
+;; It's really an artifact of the usual treebank simplification
+;; so there are not redundant unary nonterminals all over the place,
+;; in this case (INTJP (INTJ gornit)).  
+;; -------------------------------------------------------
+;; 1947E-ROYTE-POMERANTSEN,145.3431
+(FRAG (NEG gor_nit))	(INTJP (ADV gor) (NEG nit))
+
+;; sort of gross how the replacement is done in these cases, as
+;; an incomplete constituent, but no real harm, even if painful
+;; to look at. If done with CorpusSearch it wouldn't be like this.
+;; 1947E-ROYTE-POMERANTSEN,195.4931
+(FRAG (NEG gor_nit) (PUNC ,)	(FRAG (INTJP (ADV gor) (NEG nit)) (PUNC ,)
+
+;; 1947E-ROYTE-POMERANTSEN,246.6327
+(QTP (NEG gor_nit) (PUNC ,)	(QTP (INTJP (ADV gor) (NEG nit)) (PUNC ,)
+
+;; child of FRAG
+;; 1947E-ROYTE-POMERANTSEN,246.6331
+(INTJ gor_nit)	(INTJP (ADV gor) (NEG nit))
+
+;; -------------------------------------------------------
+;; Also a few cases (just 3) used as Q
+;; -------------------------------------------------------
+(NP-ACC (Q gor_nisht))	(NP-ACC (ADV gor) (Q nisht))
+(NP-ACC (Q gor_nit))	(NP-ACC (ADV gor) (Q nit))
+(NP-SBJ (Q gor_nit))	(NP-SBJ (ADV gor) (Q nit))
+
+;; -------------------------------------------------------
+;; but in general it's an ADVP sister to the verb
+;; Analogously to the comments above, the treebank will have both
+;; (NEG gornit) and (ADVP (ADV gor) (NEG nit))
+;; (NEG is a subcase of ADV)
+;; -------------------------------------------------------
+(NEG gor_nit)	(ADVP (ADV gor) (NEG nit))
+(NEG gor_nisht)	(ADVP (ADV gor) (NEG nisht))
+
+;; ==============================
+;; a_sakh
+;; ==============================
+;; -------------------------------------------------------
+;; Treating sakh as Q, and changing (N sakh) to (Q sakh),
+;; and (Q a_sakh) to (D a) (Q sakh)
+;;
+;; Most of these cases are
+;; (NP (Q a_sakh) (N noun)) or
+;; (NP (Q a_sakh) (ADJ adj) (N noun))
+;;
+;; The below changes these to
+;; 
+;; (NP (D a) (Q sakh) (N noun)) or
+;; (NP (D a) (Q sakh) (ADJ adj) (N noun))
+;;
+;; but really they should be
+;;
+;; (NP (D a) (Q sakh) (NP-COM (N noun))) or
+;; (NP (D a) (Q sakh) (NP-COM (ADJ adj) (N noun)))
+;;
+;; The output of this will be run through CorpusSearch to
+;; do that final adjustment.  It gets complicated since some
+;; of the cases are not just ...  (N noun)) but there is
+;; further stuff after the N that would go under the NP-COM.
+;;
+;; There are also some cases of
+;; (NP (Q a_sakh) (PP ...))
+;;
+;; in which case it should just be
+;;
+;; (NP (D a) (Q sakh) (PP...)
+;;
+;; so there is no additional adjustment needed.
+;;
+;; Another possibility to the above is to make sakh a N instead of Q.
+;; -------------------------------------------------------
+(Q a_sakh)	(D a) (Q sakh)
+(N sakh)	(Q sakh)
+
+;; ==============================
+;; a_mol, eyn_mol, key_mol
+;; ==============================
+
+;; -------------------------------------------------------
+;; (ADVP (ADV a_mol)) -> (NP-TMP (D a) (N mol))        (sometimes, formerly)
+;; these could be unified with a regex, not bothering, maybe
+;; would need to when doing all of the corpus
+;; -------------------------------------------------------
+(ADVP-TMP (ADV a_mol))	(NP-TMP (D a) (N mol))
+(ADVP (ADV nokh) (ADV a_mol))	(NP-TMP (ADV nokh) (D a) (N mol))
+(ADVP-TMP (ADV nokh) (ADV a_mol))	(NP-TMP (ADV nokh) (D a) (N mol))
+
+;; -------------------------------------------------------
+;; (ADVP (ADV eyn_mol)) -> (NP-TMP (NUM eyn) (N mol))  (once)
+;; 2nd one is another gross case of an incomplete inconstituent
+;; like with one of the gor_nit cases above.  does no harm
+;; -------------------------------------------------------
+(ADVP-TMP (ADV eyn_mol))	(NP-TMP (NUM eyn) (N mol))
+(ADVP-TMP (ADV eyn_mol) (PUNC ,)	(NP-TMP (NUM eyn) (N mol) (PUNC ,)
+(ADVP (ADV eyn_mol))	(NP (NUM eyn) (N mol))
+(ADVP-TMP (Q epes) (ADV eyn_mol))	(NP-TMP (Q epes) (NUM eyn) (N mol))
+
+;; -------------------------------------------------------
+;; (ADVP-TMP (ADV keyn_mol)) ->	(NP-TMP (Q keyn) (N mol))
+;; -------------------------------------------------------
+(ADVP-TMP (ADV keyn_mol))	(NP-TMP (Q keyn) (N mol))
+
+;; ==============================
+;; say_vi
+;; ==============================
+;; -------------------------------------------------------
+;; straightforward change
+;; there are also two cases of (ADVP (ADV say-vi-say)), with a hyphen,
+;; in 1947.  Need to look at that
+;; -------------------------------------------------------
+(ADVP (ADV say_vi))	(ADVP (ADV say) (ADV vi))
+
+;; ==============================
+;; vi_azoy
+;; ==============================
+;; -------------------------------------------------------------
+;; All cases are (WADVP-x (WADV vi-azoy)), straightforward change
+;; -------------------------------------------------------------
+(WADV vi_azoy)	(WADV vi) (ADV azoy)
+
+;; ==============================
+;; got_helf
+;; ==============================
+;; -------------------------------------------------------------
+;; There are 4 cases, all just hard-coded here
+;; (INTJ got_helf) gets changes to (INTJP (NPR got) (VBF helf))
+;; -------------------------------------------------------------
+;; 1947E-ROYTE-POMERANTSEN,145.3451
+(FRAG (INTJ got_helf) (PUNC ,)	(FRAG (INTJP (NPR got) (VBF helf)) (PUNC ,)
+(REP (INTJ got_helf))	(REP (INTJP (NPR got) (VBF helf)))
+
+;; 1910E-GRINE-FELDER,94.1216
+;; child of FRAG
+(INTJ got_helf)	(INTJP (NPR got) (VBF helf))
+
+;; -------------------------------------------------------------
+;; Here it's already under an INTJP, so don't need to add a INTJP
+;; -------------------------------------------------------------
+;; 1910E-GRINE-FELDER,82.742
+(INTJP (NP (D a) (N got_helf)))	(INTJP (D a) (NPR got) (VBF helf))
+
+;; ==============================
+;; in_mitn
+;; ==============================
+
+;; -------------------------------------------------------------
+;; There are just a limited # of cases so they can all be handled with
+;; search and replacen
+;;
+;; (PP    (P in_mitn)      ->   (PP (P in)
+;;        (NP ...))                 (PP (N mitn)
+;;                                      (NP-COM ...)))
+;; -------------------------------------------------------------
+(PP (P in_mitn) (NP (ADJ heln) (N tog)))	(PP (P in) (NP (N mitn) (NP-COM (ADJ heln) (N tog))))
+(PP (P in_mitn) (NP (N davenen)))	(PP (P in) (NP (N mitn) (NP-COM (N davenen))))
+(PP (P in_mitn) (NP (N feld)))	(PP (P in) (NP (N mitn) (NP-COM (N feld))))
+
+
+;; -------------------------------------------------------------
+;; (PP    (P in_mitn)            ->  (PP (P in)
+;;        (ADVP (ADV derinen)))          (NP (N mitn)
+;;                                         (ADVP (ADV derinen))))
+;; -------------------------------------------------------------
+(PP (P in_mitn) (ADVP (ADV derinen)))	(PP (P in) (NP (N mitn) (ADVP (ADV derinen))))
+
+;; -------------------------------------------------------------
+;; (ADVP (ADV in_mitn))       ->  (PP (P in)
+;;                                    (NP (N mitn)))      
+;; -------------------------------------------------------------
+(ADVP (ADV in_mitn))	(PP (P in) (NP (N mitn)))
+
+;; ==============================
+;; in_gantsn
+;; ==============================
+(ADVP (ADV in_gantsn))	(PP (P in) (NP (ADJ gantsn)))
+
+;; ==============================
+;; mer_nit
+;; ==============================
+;; -------------------------------------------------------------
+;; NEG is a subcategory of ADV
+;; -------------------------------------------------------------
+(ADVP (ADV mer_nit))	(ADVP (QR mer) (NEG nit))
+
+;; ==============================
+;; a_kitser
+;; ==============================
+(ADVP (ADV a_kitser))	(NP-ADV (D a) (N kitser))
+
+;; ==============================
+;; far_nakht
+;; ==============================
+;; -------------------------------------------------------------
+;; (ADV far_nakht) -> (PP (P far) (NP (N nakht)))
+;; -------------------------------------------------------------
+;; 1947E-ROYTE-POMERANTSEN,180.4464
+(NP-TMP (N fraytik) (ADV far_nakht))	(NP-TMP (N fraytik) (PP (P far) (NP (N nakht))))
+
+;; ==============================
+;; tsu_nakhts
+;; ==============================
+(ADVP-PRN (ADV tsu_nakhts))	(PP (P tsu) (NP (N nakhts)))
+
+;; ==============================
+;; shtetl_yidn
+;; ==============================
+(NP-SBJ (D di) (N shtetl_yidn))	(NP-SBJ (D di) (N shtetl) (N yidn))
+
+;; ==============================
+;; der_mit
+;; ==============================
+;; -------------------------------------------------------------
+;; treat it like a post-position, with the NP before it
+;; lots of of cases, although all in 1848 and before, except for one in 1947.
+;; -------------------------------------------------------------
+(PP (DR+P der_mit))	(PP (NP (D der)) (P mit))
+
+;; ==============================
+;; der_un_der
+;; ==============================
+;; -------------------------------------------------------------
+;; "so and so"
+;; two cases, both in 1947
+;; (QTP (H yaymoyd^may_come_forward) (H moreynu^teacher_our) (NPR der_un_der)))
+;; (QTP (H yaymoyd^may_come_forward) (H moreynu^teacher_our) (NPR der_un_der))))
+;; -------------------------------------------------------------
+(NPR der_un_der)	(NPR der) (NPR un) (NPR der)
+
+;; ==============================
+;; numbers
+;; ==============================
+;; -------------------------------------------------------------
+;; these are handled in the code with regexes
+;; they all get broken up and put under a NP, with all the component parts
+;; being NUM, including
+;; (NUM a), (NUM un), (NUM halbn)
+;; Some of them are already under NUMP, such as
+;; (NUMP (NUM tsen_toyznt))
+;; so the regexes handle not making an extra NUMP
+;; (NUM a_milyon)
+;; (NUM dray_milyon)
+;; (NUM hundert_un_tsvantsik)
+;; (NUM a_halbn_milyon)
+;; (NUM finef_un_zekhtsik)
+;; (NUM naynhundert_nayn_un_nayntsik)
+;; (NUM tsvey_hundert)
+;; (NUM hundert_toyznt)
+;; (NUM tsen_toyznt)
+;; (NUM tsen_tisatshe)
+;; (NUM nayn_un_nayntsik)

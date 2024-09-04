@@ -1,4 +1,4 @@
-;; yiddish.py doesn't get all the parts separately, but only as a unit
+;; yiddish.py doesn't get the parts separately, but only as a unit
 
 loshn-hore	N
 yires-hakoved	N

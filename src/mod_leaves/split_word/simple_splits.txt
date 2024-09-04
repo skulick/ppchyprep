@@ -1,0 +1,36 @@
+;; --------------------------------
+;; has partial words, not normalizing
+;; --------------------------------
+;; lomir, lomikh
+VBI~PRO	לאָ	מיר
+VBI~PRO	לאָ	מיך
+
+;; anit
+C~NEG	אַ	ניט
+C~NEG	אַ	נישט
+
+;; nishto
+;; nito
+NEG~ADV	ניט	אָ
+NEG~ADV	נישט	אָ
+
+;; vifl
+WADV~Q	װי	פֿל
+
+;; aldes
+Q~D	אַל	דעס
+
+;; otado
+FP~ADV	אָטאַ	דאָ
+
+;; --------------------------------
+;; no partial words
+;; --------------------------------
+;; farvos, tsuvos
+;; contians the 
+#P~WPRO	פֿאַר	װאָס
+#P~WPRO	צו	װאָס
+
+;; otayene - weird case, look at YBC corpus
+FP~D	אָטאַ	יענע
+P~D~N	פֿאַר	אַ	יאָרן

@@ -1,0 +1,101 @@
+;; =======================================================
+;; syntactic changes
+;; =======================================================
+;; 1910E-GRINE-FELDER,73.410
+;; (PP (P fun@) (NP (PRO @ander@))) (VB @lakhn)	(PP (P fun@) (NP (PRO @ander@))) (VB @lakhn)
+(PP (P fun@) (NP (PRO @ander@)))	(ADV funander@)
+
+;; not written as one word in text
+;; 1947E-ROYTE-POMERANTSEN,238.6133
+(D a@) (N @mol)	(D a) (N mol)
+
+;; not written as one word in text
+;; 1947E-ROYTE-POMERANTSEN,25.593
+(VBI zogt@) (FP @zhe)	(VBI zogt) (FP zhe)
+
+
+
+;; =======================================================
+;; CHANGES to ROMANIZATION
+;; =======================================================
+;; changes in 1910, already this way in 1947
+(C veyl)	(C vayl)
+(ADV davke)	(ADV dafke)
+
+;; three occurrences in 1910, only first needs fix
+(ADV pust-un-past)	(ADV pust-un-pas)
+
+(ADV noch)	(ADV nokh)
+
+(VBF khvrt)	(VBF khavert)
+
+;; This is glossed as creature, which could be
+;; a word with almost the spelling but with an aleph, but that transliteration is
+;; is brie.  berye gives the right spelling though, and is "efficient/skillful person"
+;;  which may be a good gloss also
+(N berie)	(N berye)
+
+;; koyekh is the correct romanization for the singular.
+(N koyekhes)	(N koykhes)
+
+;; sword
+(N shvert)	(N shverd)
+
+(VB laykenen)	(VB leykenen)
+(N vikuakh)	(N vikuekh)
+
+;; =======================================================
+;; changes to foreign words
+;; not sure of the Yiddish script version, but the "w" and "c" characters
+;; do not get converted at all without changing these
+;; really need a better way of handling this stuff w/o the romanization
+;; =======================================================
+(FW wysokorodiye)	(FW vysokorodiye)
+(FW gluecklich)	(FW glueklikh)
+(FW wollen)	(FW vollen)
+(FW jungen)	(FW yungen)
+
+;; =======================================================
+;; CHANGES to HEBREW WORDS
+;; =======================================================
+
+;; e.g. 87.2121  anger
+(N kas)	(N kaas)
+(N oylem-haemes)	(N oylem-hoemes)
+(N beys-medresh)	(N besmedresh)
+(N beysmedresh)	(N besmedresh)
+(N beys-oylem)	(N besoylem)
+(N beys-hamikdesh)	(N beys-hamigdesh)
+(N beys-hamikdosh)	(N beys-hamigdesh)
+(N bes-medresh)	(N besmedresh)
+(N raboynu-shel-oylem)	(N reboyne-sheloylem)
+(N yom-toyvim)	(N yontoyvim)
+(N rosh-hashone)	(N rosheshone)
+(NPR rokheln)	(NPR rokhlen)
+
+;;; kets isn't detransliterated properly
+(H bli_kets^endless)	(H bli^without) (H kets^end)
+(H y'kar_hamtsies^chosen)	(H yekar-hamtsies^rarity)
+(H al_pi^according_to)	(H alpi^according_to)
+(H al_pi^according_to_arithmetic)	(H alpi^according_to) (H khezhbm^calculation)
+(H kakh_have^really)	(H kakh-have^really)
+(H oykher_yisroel^heretic)	(H oykher-yisroel^heretic)
+(H oni_v'evyoyn^poor)	(H oni^poor_person) (H v'evyen^pauper)
+;; unclear what this dever is - "first of all one thing"
+(H koydim_kol_dovor^first_of_all)	(H koydemkol^first_of_all) (H dever^thing)
+(N bsure_roe^news_harm)	(N psureroe^news_harm)
+
+
+
+;; aseres ten  not detransliterated properly
+;; yemey days of
+;; tshuve
+;; actually it's written yemey-tshuve in the source
+(H aseres-yimey-tshuve^UNKNOWN)	(H aseres) (H yemey) (H tshuve)
+(H yoydeya^know)	(H yedeye^know)
+(RP-H maskim)	(RP-H maskem)
+(RP-H misvakeyakh)	(RP-H misvakeyekh)
+(RP-H mekabl_ponim)	(RP-H mekabl-ponem)
+(RP-H shoymer_umatsil)	(RP-H shoymer-umatsl)
+(RP-H noyse_kheyn)	(RP-H noyse-kheyn)
+(N m'uberes)	(N meuberes)

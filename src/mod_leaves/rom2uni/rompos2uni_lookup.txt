@@ -5,7 +5,7 @@ levi	NPR	לױ
 reb	N	רעב
 reb	NPR	ר'
 
-;; yiddish.py needs rebm to return the right string
+;; yiddish.py needs rebm to return the right string - is this a bug or should this be the romanization?
 rebn	N	רבין
 
 ;; yiddish.py gets elkone as   אלקנה but not with the n - does it get acc/dat on other names?
@@ -14,8 +14,20 @@ elkonen	NPR	אלקנהן
 ;; likewise for rokhlen
 rokhlen	NPR	רחלען
 
-;; yiddish.py strange error?, returns 'כּל-'
+;; At one point yiddish.py returned 'כּל-'
 kol	N	קול
+
+;; returns vov with dagesh.  Is that needed?
+;; not a big deal but makes it simpler for the splitting later on
+;; to make it just vov
+#tsuvos	P~WPRO	צוװאָס
+
+;; to maintain compatiability with earlier results.
+;; don't know why it's changed - need to look into these more.
+kol	Q	כּל-
+kol	H	כּל-
+v'kol	H	װ'כּל-
+b'kol	H	ב'כּל-
 
 ;; yiddish.py also an extra hyphen returns  בת-
 bas	NPR	בת
@@ -31,14 +43,17 @@ mir'n	PRO~MDF	מיר'ן
 ;; one yud, while the dictionary has meyashev as the romanization.
 meyashev	RP-H	מײשב
 
-;; detransliterate(porets, loshn_koydesh=True)
+;; not sure what's going on with yiddish.py here
+;; detransliterate(porets, loshn_koydesh=True) =  ץורפּ (wrong)
+;; transliterate("ץירפּ", loshn_koydesh=True) =  porets  (correct)
 porets	N	פּריץ
 
 ;; yiddish.py only works as part of sosn-vesimkhe
 sosn	N	שׂשׂון
 
-;; yiddish.py has poshet of course, but not poshete
-poshete	ADJ	פּשוטע
+;; interesting - yiddish.py has poshet of course, but not poshete - as an ADJ, shouldn't it have it also?
+;; same thing for online dictionary
+poshete	ADJ	פּשוטע
 
 ;; yiddish.py doesn't get this unless as part of sholem-aleykhem
 aleykhem	H	עליכם
@@ -50,10 +65,18 @@ lomde-toyre	N	לומדי-תּורה
 ;; don't know what this is
 das	X	דאס
 
+;; odd case
+;; otayene is treated as ota + yene
+;; really need to check the YBC corpus and see how common this is
+otayene	FP~D	אָטאַיענע
+
+;; combined word, need to override ay
+farayorn	P~D~N	פֿאַראַיאָרן
+
 ;; really besmedresh but with a hey before medresh
 beys-hamidresh	N	ביתּ-המדרש
 
-;; yiddish.py has it with epele
+;; yiddish.py only has it with epele
 simkhes-toyre-epl	N	שׂימחת-תּורה-עפּל
 
 ki	H	כּי

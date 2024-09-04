@@ -1,15 +1,11 @@
 CORPUS_DIR=./data/penn-parsed-corpus-of-historical-yiddish/data
-OUT_DIR=./out
-mkdir $OUT_DIR
-echo STEP 1
-python ./src/convert_psd2mod.py --keep_parens  ${CORPUS_DIR} ${OUT_DIR}
-echo STEP 2
-python ./src/write_pos.py ${OUT_DIR}
-echo STEP 3
-python ./src/make_splits.py ${OUT_DIR}
-echo STEP 4
-python ./src/get_split_stats.py ${OUT_DIR}
-echo STEP 5
-python ./src/write_lexicon.py ${OUT_DIR}
-echo STEP 6
+NEW_CORPUS_DIR=./out
 
+python ./src/modify_psd/modify_psd.py ${CORPUS_DIR} ${NEW_CORPUS_DIR}
+python ./src/prep_psd/prep_psd.py ${NEW_CORPUS_DIR}
+python ./src/mod_leaves/make_json.py ${NEW_CORPUS_DIR}
+python ./src/write_files/write_pos.py ${NEW_CORPUS_DIR}
+python ./src/write_files/write_flat_trees.py ${NEW_CORPUS_DIR}
+./src/write_files/pp_psd.sh ${NEW_CORPUS_DIR}
+python ./src/write_files/write_pos_word_counts.py ${NEW_CORPUS_DIR}
+python ./src/write_files/count_chars.py ${NEW_CORPUS_DIR}
